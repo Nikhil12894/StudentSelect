@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "boss_0XU_icon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
