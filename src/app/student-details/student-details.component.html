@@ -1,0 +1,113 @@
+<fieldset>
+  <legend>Student-Details</legend>
+<form form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+    <label>Name Of The Student</label>
+    <input type="text" class="form-control form-control-sm" #nameRef placeholder="Student Name"
+    ngModel name="StudentName" required>
+
+    <label>Father's Name</label>
+    <input type="text" class="form-control form-control-sm" placeholder="Father's Name"
+    ngModel name="FatherName" required>
+
+  <div class="row">
+    <div class="col">
+
+        <label>Marks</label>
+        <input type="number" class="form-control form-control-sm" placeholder="Matks"
+        ngModel name="StudentMarks" min="50" max="100" required>
+
+    </div>
+    <div class="col">
+
+        <label>Category</label>
+            <select class="selectpicker form-control form-control-sm"
+             ngModel name="Catogery" required>
+              <option *ngFor="let catogery of Catogery">
+                {{ catogery }}
+              </option>
+            </select>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+      <label>Gender</label>
+          <select class="selectpicker form-control form-control-sm"
+          ngModel name="Gender" required>
+            <option *ngFor="let g of Gender">
+              {{ g }}
+            </option>
+          </select>
+
+  </div>
+    <div class="col">
+
+      <label>First choice</label><br>
+      <select class="selectpicker form-control form-control-sm" ngModel name="First_Choice" required>
+        <option *ngFor="let department of DepartmentChoice">
+          {{ department }}
+        </option>
+      </select>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+      <label>Second choice</label><br>
+      <select class="selectpicker form-control form-control-sm" ngModel name="Second_Choice" required>
+        <option *ngFor="let department of DepartmentChoice">
+          {{ department }}
+        </option>
+      </select>
+
+    </div>
+    <div class="col">
+
+      <label>Third choice</label><br>
+      <select class="selectpicker form-control form-control-sm" ngModel name="Third_Choice" required>
+        <option *ngFor="let department of DepartmentChoice">
+          {{ department }}
+        </option>
+      </select>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+      <label>fourth choice</label><br>
+      <select class="selectpicker form-control form-control-sm" ngModel name="Fourth_Choice" required>
+        <option *ngFor="let department of DepartmentChoice">
+          {{ department }}
+        </option>
+      </select>
+
+    </div>
+    <div class="col">
+
+      <label>Fifth choice</label><br>
+      <select class="selectpicker form-control form-control-sm" ngModel name="Fifth_Choice" required>
+        <option *ngFor="let department of DepartmentChoice">
+          {{ department }}
+        </option>
+      </select>
+
+    </div>
+
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-4"></div>
+    <div class="col-xl-4 col-lg-4 col-md-4" id="ctr">
+      <button class = "btn btn-success" [disabled] ="!f.form.valid">Add To List</button>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-4"></div>
+  </div>
+
+</form>
+</fieldset>
+
+<p>{{ message }}</p>

@@ -1,0 +1,59 @@
+<!-- List_Of_AllStudent in Department C  -->
+<input type="checkbox" (click)="toggel()" style="width:20px; height:20px;" *ngIf="!show"><span *ngIf="!show">show</span>
+<button type="button" class="btn btn-primary" (click)="onClick()" [disabled] = "toggal"> show the list</button>
+<fieldset style="bordered: soli 2px;" *ngIf = "show">
+    <legend style="text-align: center;"><em>Department C</em></legend>
+    <table class="table table-striped" style="background: #F8F9F9;">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Student Name</th>
+            <th>Father's Name</th>
+            <th>Marks</th>
+            <th>Category</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+<label><strong>General</strong></label><br>
+          <tr *ngFor = "let G of general; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ G.StudentName }}</td>
+            <td>{{ G.FatherName }}</td>
+            <td>{{ G.StudentMarks }}</td>
+            <td>{{ G.Catogery }}</td>
+            <td>{{ G.Gender }}</td>
+          </tr>
+
+<label><strong>Muslim</strong></label><br>
+          <tr *ngFor = "let M of _mushlim; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ M.StudentName }}</td>
+            <td>{{ M.FatherName }}</td>
+            <td>{{ M.StudentMarks }}</td>
+            <td>{{ M.Catogery }}</td>
+            <td>{{ M.Gender }}</td>
+          </tr>
+
+<label><strong>Women</strong></label><br>
+          <tr *ngFor = "let W of _women; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ W.StudentName }}</td>
+            <td>{{ W.FatherName }}</td>
+            <td>{{ W.StudentMarks }}</td>
+            <td>{{ W.Catogery }}</td>
+            <td>{{ W.Gender }}</td>
+          </tr>
+
+<label><strong>OBC/SC/ST</strong></label><br>
+          <tr *ngFor = "let O of _other; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ O.StudentName }}</td>
+            <td>{{ O.FatherName }}</td>
+            <td>{{ O.StudentMarks }}</td>
+            <td>{{ O.Catogery }}</td>
+            <td>{{ O.Gender }}</td>
+          </tr>
+        </tbody>
+        </table>
+</fieldset>

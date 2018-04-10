@@ -1,0 +1,161 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xl col-lg col-md">
+      <app-student-details (childEvent) = "list = $event"></app-student-details>
+    </div>
+  </div>
+</div>
+
+<!-- Warning Message -->
+<div class="row">
+  <div class="col-xl-3 col-lg-3 col-md-3"></div>
+  <div class="col-xl-6 col-lg-6 col-md-6">
+    <div class="alert alert-danger" role="alert" id="ctr">
+      <strong>Warning!</strong> check the box only if you have added all the students to the list
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3"></div>
+</div>
+<!-- button for calling onClick function -->
+
+<div class="row">
+  <div class="col-xl col-lg col-md">
+
+  </div>
+  <div class="col-xl col-lg col-md" id="ctr1">
+    <input type="checkbox" (click)="desabled()" style="width:20px; height:20px;">Aggery
+    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Clich only when Done Adding"
+    (click)="onclick()" [disabled]="disableButton">Generate The List</button>
+  </div>
+  <div class="col-xl col-lg col-md"></div>
+</div>
+<br>
+<!-- List of all Student  -->
+<div id="accordion">
+  <div class="card" style="background: #AED6F1;">
+    <div class="card-header" id="headingOne">
+      <h4 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          List Of All Student
+        </button>
+      </h4>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+      <table class="table table-striped" style="background: #F8F9F9;">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Student Name</th>
+            <th>Father's Name</th>
+            <th>Marks</th>
+            <th>Category</th>
+            <th>Gender</th>
+            <th>Choice1</th>
+            <th>Choice2</th>
+            <th>Choice3</th>
+            <th>Choice4</th>
+            <th>Choice5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let tab of list; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ tab.StudentName }}</td>
+            <td>{{ tab.FatherName }}</td>
+            <td>{{ tab.StudentMarks }}</td>
+            <td>{{ tab.Catogery }}</td>
+            <td>{{ tab.Gender }}</td>
+            <td>{{ tab.First_Choice }}</td>
+            <td>{{ tab.Second_Choice }}</td>
+            <td>{{ tab.Third_Choice }}</td>
+            <td>{{ tab.Fourth_Choice }}</td>
+            <td>{{ tab.Fifth_Choice }}</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+<!-- List of all Student  Department Wise -->
+  <div class="card" *ngIf = "disableButton1" style="background: #E8F8F5;">
+    <div class="card-header" id="headingTwo">
+      <h4 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Department A
+        </button>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <app-dapartment-a [general]="general_A" [mushlim]="mushlim_A"
+        [women]="women_A" [other]="OBC_SC_ST_A"></app-dapartment-a>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf = "disableButton1" style="background: #E8F8F5;">
+    <div class="card-header" id="headingThree">
+      <h4 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Department B
+        </button>
+      </h4>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <app-dapartment-b [general]="general_B" [mushlim]="mushlim_B"
+        [women]="women_B" [other]="OBC_SC_ST_B"></app-dapartment-b>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf = "disableButton1" style="background: #E8F8F5;">
+    <div class="card-header" id="headingFour">
+      <h4 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+          Department C
+        </button>
+      </h4>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+        <app-dapartment-c [general]="general_C" [mushlim]="mushlim_C"
+        [women]="women_C" [other]="OBC_SC_ST_C"></app-dapartment-c>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf = "disableButton1" style="background: #E8F8F5;">
+    <div class="card-header" id="headingFive">
+      <h4 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+          Department D
+        </button>
+      </h4>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+        <app-dapartment-d [general]="general_D" [mushlim]="mushlim_D"
+        [women]="women_D" [other]="OBC_SC_ST_D"></app-dapartment-d>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf = "disableButton1" style="background: #E8F8F5;">
+    <div class="card-header" id="headingSix">
+      <h4 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+          Department E
+        </button>
+      </h4>
+    </div>
+    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+        <app-dapartment-e [general]="general_E" [mushlim]="mushlim_E"
+        [women]="women_E" [other]="OBC_SC_ST_E"></app-dapartment-e>
+      </div>
+    </div>
+  </div>
+</div>
